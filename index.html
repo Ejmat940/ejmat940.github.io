@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bartosz Dobrochowski (57773) - PTW LAB C</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="leaflet-1.9.4/leaflet.css" />
+    <script src="leaflet-1.9.4/leaflet-src.js"></script>
+    <script src="leaflet-1.9.4/leaflet-providers.js"></script>
+    <script src="leaflet-1.9.4/leaflet-image.js"></script>
+</head>
+<body>
+<!-- Map -->
+<button id="getLocation" onclick="getLocation()">Moja lokalizacja</button>
+
+<div id="positionInfo">
+    <strong>Latitude:</strong> <span id="latitude"></span><br>
+    <strong>Longitude:</strong> <span id="longitude"></span><br>
+</div>
+
+<div id="map"></div>
+<button id="saveButton">Pobierz mapę</button>
+<button id="generatePuzzle" onclick="generatePuzzle()">Generate puzzle</button><br>
+<canvas id="rasterMap" width="300" height="150"></canvas>
+
+<!-- Drag and drop -->
+<br>
+Target 1
+<div class="drag-target"></div>
+
+Target 2
+<div class="drag-target" id="target2"></div>
+
+</body>
+</html>

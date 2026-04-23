@@ -1,0 +1,38 @@
+body {
+  background-color: #e6f1fc;
+}
+
+/* Map */
+#map {
+  width: 600px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#rasterMap {
+  width: 300px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+/* Drag and drop */
+div.item {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+div.draggable {
+  background-color: #7f7fe9;
+}
+div.non-draggable {
+  background-color: #ee15af;
+}
+
+div.drag-target {
+  width: 300px;
+  height: 150px;
+  border: 2px dashed #7f7fe9;
+  margin-bottom: 25px;
+}
