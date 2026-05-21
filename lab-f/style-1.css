@@ -1,0 +1,13 @@
+.outputText {
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 1px;
+}
+select {
+    width: 380px;
+    background-color: white;
+    padding: 4px;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
