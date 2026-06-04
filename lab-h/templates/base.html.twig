@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        {# Bootstrap CSS (CDN) #}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        {# Custom styles - asset mapper will expose assets under /assets/... #}
+        <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}">
+
+        {% block stylesheets %}{% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
@@ -18,7 +24,53 @@
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="d-flex flex-column min-vh-100">
+
+        {# HEADER: responsywny navbar z Bootstrap + klasy własne #}
+        <header class="site-header mb-4 bg-primary text-white">
+            <nav class="navbar navbar-expand-lg navbar-dark container">
+                <a class="navbar-brand d-flex align-items-center" href="{{ path('app_song_index') }}">
+                    <span class="brand-logo me-2">♪</span>
+                    <span class="brand-name">Moje Utwory</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_song_index') }}">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_song_new') }}">Dodaj nowy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">O stronie</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-fill container">
+            {% block body %}{% endblock %}
+        </main>
+
+        {# FOOTER: prosty, responsywny #}
+        <footer class="site-footer mt-4 py-3 bg-dark text-white">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="footer-left small">
+                    © {{ "now"|date("Y") }} Moje Utwory — wszystkie prawa zastrzeżone
+                </div>
+                <div class="footer-right mt-2 mt-md-0">
+                    <a class="text-white text-decoration-none me-3" href="#">Polityka prywatności</a>
+                    <a class="text-white text-decoration-none" href="#">Kontakt</a>
+                </div>
+            </div>
+        </footer>
+
+        {# Bootstrap JS (CDN) - requires Popper which is bundled in Bootstrap 5 bundle on CDN #}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Song{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <h1 class="mb-4">Song details</h1>
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ song.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ song.title }}</td>
+            </tr>
+            <tr>
+                <th>Artist</th>
+                <td>{{ song.artist }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ song.year }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-secondary"
+           href="{{ path('app_song_index') }}">
+            Back to list
+        </a>
+
+        <a class="btn btn-warning"
+           href="{{ path('app_song_edit', {'id': song.id}) }}">
+            Edit
+        </a>
+
+        {{ include('song/_delete_form.html.twig') }}
+
+    </div>
+{% endblock %}

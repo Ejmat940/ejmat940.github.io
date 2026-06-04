@@ -1,3 +1,68 @@
 body {
-    background-color: skyblue;
+    background-color: #e9f7ff; /* delikatne niebo jako tło */
+    color: #1b3340;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
+.page-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.table {
+    background: white;
+    border-radius: .375rem;
+    overflow: hidden;
+}
+
+/* HEADER / NAVBAR customizacja */
+.site-header {
+    box-shadow: 0 2px 8px rgba(17,24,39,0.08);
+}
+.navbar-brand .brand-logo{
+    background: rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-weight: 700;
+}
+.brand-name{
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+.navbar .nav-link{
+    transition: color .15s ease-in-out, transform .08s ease;
+}
+.navbar .nav-link:hover{
+    color: #ffe6a7 !important;
+    transform: translateY(-1px);
+}
+
+/* FOOTER */
+.site-footer a:hover{
+    text-decoration: underline;
+}
+
+/* Hero / page header */
+.hero {
+    background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(0,0,0,0.02));
+    padding: 2rem;
+    border-radius: .5rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Przyjazne tabele */
+.song-table th{
+    background: rgba(0,0,0,0.03);
+}
+
+/* Small screens (wąski ekran) */
+@media (max-width: 576px) {
+    .brand-name { font-size: 1rem; }
+    .brand-logo { font-size: .9rem; padding: 3px 6px; }
+    .navbar { padding-left: 0; padding-right: 0; }
+    .site-header { padding-bottom: .25rem; padding-top: .25rem; }
+    .site-footer { font-size: .85rem; padding-top: .75rem; padding-bottom: .75rem; }
+    .hero { padding: 1rem; }
+}
+
+/* Utility tweaks */
+.container { max-width: 980px; }
