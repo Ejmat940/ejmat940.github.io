@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Songs List{% endblock %}
+{% block bodyClass %}index{% endblock %}
+
+{% block content %}
+<h1>Songs List</h1>
+
+<a href="{{ url_for('song_create') }}">Create new</a>
+
+<ul class="index-list">
+    {% for song in songs %}
+        <li>
+            <h3>{{ song.title }} — {{ song.artist }}</h3>
+            <ul class="action-list">
+                <li><a href="{{ url_for('song_detail', song_id=song.id) }}">Details</a></li>
+                <li><a href="{{ url_for('song_edit', song_id=song.id) }}">Edit</a></li>
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

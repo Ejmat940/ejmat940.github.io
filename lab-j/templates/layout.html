@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/dist/style.min.css">
+    <title>{% block title %}Song CRUD{% endblock %}</title>
+</head>
+
+<body class="{% block bodyClass %}{% endblock %}">
+<nav>
+    {% include "nav.html" %}
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>&copy;{{ 2026 }}</footer>
+</body>
+</html>

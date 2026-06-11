@@ -1,0 +1,10 @@
+.idea
+/config/config.php
+/data.db
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+/instance/data.db

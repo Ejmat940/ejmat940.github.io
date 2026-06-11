@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ song.title }} ({{ song.id }}){% endblock %}
+{% block bodyClass %}show{% endblock %}
+
+{% block content %}
+<h1>{{ song.title }}</h1>
+
+<article>
+    <p><strong>Artist:</strong> {{ song.artist }}</p>
+    <p><strong>Year:</strong> {{ song.year }}</p>
+</article>
+
+<ul class="action-list">
+    <li><a href="{{ url_for('song_list') }}">Back to list</a></li>
+    <li><a href="{{ url_for('song_edit', song_id=song.id) }}">Edit</a></li>
+</ul>
+{% endblock %}
