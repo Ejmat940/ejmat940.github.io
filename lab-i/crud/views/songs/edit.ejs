@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %> - CRUD</title>
+</head>
+<body class="edit">
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/songs">Songs</a></li>
+    </ul>
+</nav>
+<main>
+    <h1>Edit Song <%= song.title %> (<%= song.id %>)</h1>
+    <form action="/songs/edit" method="post" class="edit-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="song[title]" value="<%= song.title %>">
+        </div>
+
+        <div class="form-group">
+            <label for="artist">Artist</label>
+            <input type="text" id="artist" name="song[artist]" value="<%= song.artist %>">
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="number" id="year" name="song[year]" value="<%= song.year %>">
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <input type="submit" value="Submit">
+        </div>
+
+        <input type="hidden" name="id" value="<%= song.id %>">
+    </form>
+
+    <ul class="action-list">
+        <li>
+            <a href="/songs">Back to list</a>
+        </li>
+        <li>
+            <form action="/songs/delete" method="post" style="display: inline;">
+                <input type="submit" value="Delete" onclick="return confirm('Are you sure?')">
+                <input type="hidden" name="id" value="<%= song.id %>">
+            </form>
+        </li>
+    </ul>
+</main>
+<footer>&copy;<%= new Date().getFullYear() %> CRUD App</footer>
+</body>
+</html>
+
+
