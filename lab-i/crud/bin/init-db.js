@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const DB_PATH = path.join(__dirname, '..', 'app.db');
 
-async function initDatabase(callback) {
+async function initDatabase() {
   try {
     const SQL = await initSqlJs();
     let db;
@@ -35,10 +35,9 @@ async function initDatabase(callback) {
     db.close();
 
     console.log('Database initialized successfully');
-    callback();
   } catch (err) {
     console.error('Error initializing database:', err);
-    callback(err);
+    throw err;
   }
 }
 

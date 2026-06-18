@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %> - CRUD</title>
+</head>
+<body class="index">
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/songs">Songs</a></li>
+    </ul>
+</nav>
+<main>
+    <h1>Songs List</h1>
+
+    <a href="/songs/create">Create new</a>
+
+    <ul class="index-list">
+        <% if (songs && songs.length > 0) { %>
+            <% songs.forEach(song => { %>
+                <li>
+                    <h3><%= song.title %> — <%= song.artist %></h3>
+                    <ul class="action-list">
+                        <li><a href="/songs/<%= song.id %>">Details</a></li>
+                        <li><a href="/songs/<%= song.id %>/edit">Edit</a></li>
+                    </ul>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <p>No songs yet. <a href="/songs/create">Create one</a></p>
+        <% } %>
+    </ul>
+</main>
+<footer>&copy;<%= new Date().getFullYear() %> CRUD App</footer>
+</body>
+</html>
+
+

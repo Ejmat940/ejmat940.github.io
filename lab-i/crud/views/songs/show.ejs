@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %> - CRUD</title>
+</head>
+<body class="show">
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/songs">Songs</a></li>
+    </ul>
+</nav>
+<main>
+    <h1><%= song.title %></h1>
+
+    <article>
+        <p><strong>Artist:</strong> <%= song.artist %></p>
+        <p><strong>Year:</strong> <%= song.year %></p>
+    </article>
+
+    <ul class="action-list">
+        <li><a href="/songs">Back to list</a></li>
+        <li><a href="/songs/<%= song.id %>/edit">Edit</a></li>
+    </ul>
+</main>
+<footer>&copy;<%= new Date().getFullYear() %> CRUD App</footer>
+</body>
+</html>

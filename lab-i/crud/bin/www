@@ -82,7 +82,7 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+async function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
@@ -90,9 +90,10 @@ function onListening() {
   debug('Listening on ' + bind);
 
   // Initialize database
-  initDatabase((err) => {
-    if (err) {
-      console.error('Failed to initialize database:', err);
-    }
-  });
+  try {
+    await initDatabase();
+  } catch (err) {
+    console.error('Failed to initialize database:', err);
+    process.exit(1);
+  }
 }
